@@ -1,9 +1,9 @@
-extends base.pug
-include mixins/video
+extends base
+include mixins/card
 
 block content
-    h2 Welcome here
-    each video in videos
-        +video(video) 
+    h2 Information of card
+    each card in cards
+        +card(card) 
     else
         li sorry nothing found 

@@ -1,0 +1,9 @@
+mixin card(cardInfo)
+    div 
+      h4
+        a(href=`/cards/${cardInfo.id}`)=cardInfo.title
+      ul 
+          li #{cardInfo.rating}/5
+          li #{cardInfo.comments}
+          li Posted #{cardInfo.cratedAt}
+          li #{cardInfo.views} view 

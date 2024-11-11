@@ -14,9 +14,9 @@ app.set("views", process.cwd() + "/src/views");
 app.use(logger);
 app.use("/", globalRouter);
 app.use("/user", userRouter);
-app.use("/card", cardRouter);
+app.use("/cards", cardRouter);
 
 app.listen(
   PORT,
-  console.log(`Server l istening on port http://localhost:${PORT}`)
+  console.log(`Server is running on port http://localhost:${PORT}`)
 );
