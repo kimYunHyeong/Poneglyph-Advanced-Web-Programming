@@ -1,6 +1,6 @@
 let cards = [
   {
-    title: "luffy",
+    title: "gomu-gomuNoMi",
     rating: 5,
     comments: 2,
     cratedAt: "2 minutes ago",
@@ -8,7 +8,7 @@ let cards = [
     id: 1,
   },
   {
-    title: "zoro",
+    title: "mera-meraNoMi",
     rating: 5,
     comments: 2,
     cratedAt: "2 minutes ago",
@@ -16,7 +16,7 @@ let cards = [
     id: 2,
   },
   {
-    title: "sanji",
+    title: "holo-holNoMi",
     rating: 5,
     comments: 2,
     cratedAt: "2 minutes ago",
@@ -24,7 +24,7 @@ let cards = [
     id: 3,
   },
   {
-    title: "nami",
+    title: "wara-waraNoMi",
     rating: 5,
     comments: 2,
     cratedAt: "2 minutes ago",
@@ -32,7 +32,7 @@ let cards = [
     id: 4,
   },
   {
-    title: "ussop",
+    title: "ito-itoNoMi",
     rating: 5,
     comments: 2,
     cratedAt: "2 minutes ago",
@@ -45,10 +45,9 @@ export const showHomepage = (req, res) => {
   res.render("home", { pageTitle: "Home", cards });
 };
 
-export const watch = (req, res) => {
+export const watchFruit = (req, res) => {
   const { id } = req.params;
   const card = cards[id - 1];
-
   res.render("card", {
     pageTitle: `watching ${card.title}`,
 
@@ -56,19 +55,9 @@ export const watch = (req, res) => {
   });
 };
 
-export const edit = (req, res) => {
-  const { id } = req.params;
-  const card = cards[id - 1];
-  res.render("Edit", {
-    pageTitle: `Edit card ${card.title}`,
-
-    card,
-  });
-};
-
-export const card_home = (req, res) => {
-  res.render("card_home", {
-    pageTitle: `Card Homepage`,
+export const fruit_home = (req, res) => {
+  res.render("fruit_home", {
+    pageTitle: `Fruit Homepage`,
     cards,
   });
 };

@@ -45,10 +45,9 @@ export const showHomepage = (req, res) => {
   res.render("home", { pageTitle: "Home", cards });
 };
 
-export const watch = (req, res) => {
+export const watchCharacter = (req, res) => {
   const { id } = req.params;
   const card = cards[id - 1];
-
   res.render("card", {
     pageTitle: `watching ${card.title}`,
 
@@ -56,19 +55,9 @@ export const watch = (req, res) => {
   });
 };
 
-export const edit = (req, res) => {
-  const { id } = req.params;
-  const card = cards[id - 1];
-  res.render("Edit", {
-    pageTitle: `Edit card ${card.title}`,
-
-    card,
-  });
-};
-
-export const card_home = (req, res) => {
-  res.render("card_home", {
-    pageTitle: `Card Homepage`,
+export const character_home = (req, res) => {
+  res.render("character_home", {
+    pageTitle: `character Homepage`,
     cards,
   });
 };

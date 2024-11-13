@@ -2,8 +2,12 @@ extends base
 include mixins/card
 
 block content
-    h2 Information of card
-    each card in cards
-        +card(card) 
-    else
-        li sorry nothing found 
+    div(class=goToButtonDiv)
+        a(href=`/stories`)
+            button(class="goToButton", type="button") Story
+        a(href=`/cards`)
+            button(class="goToButton", type="button") Card
+        a(href=`/characters`)
+            button(class="goToButton", type="button") Character
+        a(href=`/fruits`)
+            button(class="goToButton", type="button") Fruit
