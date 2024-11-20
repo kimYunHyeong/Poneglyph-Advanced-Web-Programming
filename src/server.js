@@ -9,8 +9,6 @@ import storyRouter from "./routers/storyRouter";
 import characterRouter from "./routers/characterRouter";
 import fruitRouter from "./routers/fruitRouter";
 
-const PORT = 4000;
-
 const app = express();
 const logger = morgan("dev");
 app.set("view engine", "pug");
@@ -29,7 +27,4 @@ app.use("/stories", storyRouter);
 app.use("/characters", characterRouter);
 app.use("/fruits", fruitRouter);
 
-app.listen(
-  PORT,
-  console.log(`Server is running on port http://localhost:${PORT}`)
-);
+export default app;
