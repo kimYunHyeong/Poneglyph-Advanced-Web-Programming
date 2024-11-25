@@ -22,9 +22,13 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   session({
-    secret: "Hello!",
+    secret: process.env.COOKIE_SECRET,
     resave: true,
-    saveUninitialized: true,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 100000000000,
+    },
+    store: MongoStore.create({ mongoUrl: process.env.DB_URL }),
   })
 );
 app.use(localMiddleware);

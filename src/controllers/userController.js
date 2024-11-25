@@ -43,6 +43,9 @@ export const postLogin = async (req, res) => {
   const { userID, password } = req.body;
   const pageTitle = "Log in";
   const user = await User.findOne({ userID });
+
+  console.log(userID);
+  console.log(user);
   if (!user) {
     return res.status(400).render("login", {
       pageTitle,

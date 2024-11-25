@@ -1,5 +1,25 @@
 @import "./_variables";
 
-body {
-  background-color: $bg;
+header {
+  background-image: url("../img/0.png");
+  display: flex;
+  flex-direction: column;
+
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  align-content: center;
+}
+
+.login-bar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
