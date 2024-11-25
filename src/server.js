@@ -1,8 +1,11 @@
 import express from "express";
 import morgan from "morgan";
+import session from "express-session";
+import MongoStore from "connect-mongo";
+import { localMiddleware } from "./middlewares";
 
 //routers
-import globalRouter from "./routers/globalRouter";
+import rootRouter from "./routers/rootRouter";
 import userRouter from "./routers/userRouter";
 import cardRouter from "./routers/cardRouter";
 import storyRouter from "./routers/storyRouter";
@@ -17,8 +20,19 @@ app.set("views", process.cwd() + "/src/views");
 app.use(logger);
 app.use(express.urlencoded({ extended: true }));
 
+app.use(
+  session({
+    secret: "Hello!",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+app.use(localMiddleware);
+
+app.use("/assets", express.static("assets"));
+
 //important router
-app.use("/", globalRouter);
+app.use("/", rootRouter);
 app.use("/user", userRouter);
 
 //informartion router

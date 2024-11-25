@@ -19,11 +19,38 @@ export const watch = (req, res) => {
   });
 };
 
-export const edit = (req, res) => {
+export const getEdit = (req, res) => {
   const { id } = req.params;
-  res.render("Edit", {
-    pageTitle: `Edit card`,
+  res.render("edit", {
+    pageTitle: `editing ${card.title}`,
   });
+};
+
+export const postEdit = (req, res) => {
+  const { id } = req.params;
+  const { title } = req.body;
+  return res.redirect(`/cards/${id}`);
+};
+
+export const getUpload = (req, res) => {
+  return res.render("upload", { pageTitle: "Upload card" });
+};
+
+export const postUpload = async (req, res) => {
+  //add card
+  const { title, descripttion, hashtags } = req.body;
+  await card.create({
+    title,
+    descripttion,
+    createdAt: Date.now(),
+    hashTags: hashtags.split(",").map((word) => `${word}`),
+    meta: {
+      views: 0,
+      rating: 0,
+    },
+  });
+
+  return res.redirect("/");
 };
 
 export const card_home = (req, res) => {

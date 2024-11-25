@@ -1,3 +1,7 @@
-extends base
+extends base.pug
+
 block content
-    h1 Edit card
+    h4 Change Title of card
+    form(method="POST")
+        input(name="title",placeholder="Card Title", value=card.title, required)
+        input(value="Save",type="submit")

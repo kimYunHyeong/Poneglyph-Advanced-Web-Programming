@@ -1,3 +1,4 @@
+import "dotenv/config";
 import "./db";
 import "./models/Card";
 import app from "./server";

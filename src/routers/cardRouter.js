@@ -1,11 +1,18 @@
 import express from "express";
-import { watch, edit, card_home } from "../controllers/cardController";
-import { login } from "../controllers/userController";
+import {
+  watch,
+  getEdit,
+  postEdit,
+  card_home,
+  getUpload,
+  postUpload,
+} from "../controllers/cardController";
 
 const cardRouter = express.Router();
 
 cardRouter.get("/", card_home);
-cardRouter.get("/:id(\\d+)", watch);
-cardRouter.route("/:id(\\d+)/edit").get(edit).post(edit);
+cardRouter.get("/:id([0-9a-f]{24})", watch);
+cardRouter.route("/:id([0-9a-f]{24})/edit").get(getEdit).post(postEdit);
+cardRouter.route("/upload").get(getUpload).post(postUpload);
 
 export default cardRouter;
