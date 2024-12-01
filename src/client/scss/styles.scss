@@ -1,7 +1,11 @@
 @import "./_variables";
 
+body {
+  background-color: $bg;
+}
+
 header {
-  background-image: url("../img/0.png");
+  // background-image: url("../img/0.png");
   display: flex;
   flex-direction: column;
 

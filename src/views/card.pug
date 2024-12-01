@@ -1,4 +1,8 @@
 extends base
 block content
-    h1 Card information #{card.views ===1 ? "view" : "views"}
-    a(href=`${card.id}/edit`) Edit Card &rarr; 
+    p=card.description
+    small=card.createdAt
+    br
+    a(href=`${card.id}/edit`) Edit Card &rarr;
+    br
+    a(href=`${card.id}/delete`) Delete Card &rarr;

@@ -11,6 +11,8 @@ html(lang="en")
         header 
             nav.login-bar
                 ul
+                    li
+                        a(href="/") go to home
                     if loggedIn
                         li
                             a(href="/logout") Log Out
@@ -22,7 +24,6 @@ html(lang="en")
                         li
                             a(href="/login") Login
             h1.title=pageTitle
-            a(href="/") Go home
         main
             block content
     include partials/footer
