@@ -18,7 +18,7 @@ export const watch = async (req, res) => {
     return res.render("404", { pageTitle: "card Not Found" });
   }
   res.render("card", {
-    pageTitle: `watching`,
+    pageTitle: `watching "${card.title}"`,
     card,
   });
 };
