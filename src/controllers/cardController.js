@@ -133,7 +133,7 @@ export const getSearch = async (req, res) => {
 export const card_home = (req, res) => {
   Card.find({})
     .then((cards) => {
-      const imagePath = `/assets/${cards.img}`;
+      const imagePath = `/assets/${Card.img}`;
       return res.render("card_home", {
         pageTitle: `Card Homepage`,
         cards: cards,
@@ -162,6 +162,7 @@ export const user_card_home = (req, res) => {
 export const userCardWatch = async (req, res) => {
   const { id } = req.params;
   const userCard = await UserCard.findById(id);
+  console.log("cards", userCard);
   if (!userCard) {
     return res.render("404", { pageTitle: "card Not Found" });
   }
