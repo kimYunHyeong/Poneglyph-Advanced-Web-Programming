@@ -3,7 +3,13 @@ extends base.pug
 block content
     h4 Change Title of card
     form(method="POST")
-        input(name="title",placeholder="Card Title", value=card.title, required)
-        input(placeholder="Description",required, type="text" name="description",minlength=20, value=card.description)
-        input(placeholder="Hash tags, separated by comma",required, type="text" name="hashtags",value=card.hashTags.join())
+        input(placeholder="cardName",required, type="text" name="cardName")
+        input(placeholder="cost",required, type="text" name="cost")
+        input(placeholder="power",required, type="text" name="power")
+        input(placeholder="counter",required, type="text" name="counter")
+        input(placeholder="color",required, type="text" name="color")
+        input(placeholder="feature",required, type="text" name="feature")
+        input(placeholder="text",required, type="text" name="text")
+        input(placeholder="getInfo",required, type="text" name="getInfo")
+        input(placeholder="img",required, type="text" name="img")
         input(value="Save",type="submit")

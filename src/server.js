@@ -16,9 +16,11 @@ const app = express();
 const logger = morgan("dev");
 app.set("view engine", "pug");
 app.set("views", process.cwd() + "/src/views");
+const path = require("path");
 
 app.use(logger);
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "dist")));
 
 app.use(
   session({

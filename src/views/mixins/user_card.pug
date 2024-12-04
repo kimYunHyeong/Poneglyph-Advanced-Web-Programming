@@ -1,0 +1,7 @@
+mixin card(cardInfo)
+    div 
+      h4
+        a(href=`/cards/usercards/${cardInfo.id}`)=cardInfo.cardName
+      p=cardInfo.power
+      small=cardInfo.createdAt
+      hr 

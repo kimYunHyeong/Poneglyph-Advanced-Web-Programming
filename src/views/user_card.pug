@@ -1,0 +1,19 @@
+extends base
+block content
+    p=usercard.cardName
+    p=usercard.cost
+    p=usercard.attribute
+    p=usercard.power
+    p=usercard.counter
+    p=usercard.color
+    p=usercard.feature
+    p=usercard.text
+    p=usercard.getInfo
+    div.usercard-img
+    small=usercard.createdAt
+    br
+    a(href=`${usercard.id}/edit`) Edit Card &rarr;
+    br
+    a(href=`${usercard.id}/delete`) Delete Card &rarr;
+
+

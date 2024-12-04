@@ -1,14 +1,14 @@
 extends base
-include mixins/card
+include mixins/user_card
 
 block content
-    h1 Card Home
+    h1 User Card Home
     ul
         li
             a(href="/cards/upload") upload Cards
         li
             a(href="/search") Search
-    each card in cards
+    each card in userCards
         +card(card) 
     else
         li sorry nothing found

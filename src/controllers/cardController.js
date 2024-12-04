@@ -1,4 +1,5 @@
 import Card from "../models/Card";
+import UserCard from "../models/UserCard";
 
 export const showHomepage = (req, res) => {
   const cards = Card.find({})
@@ -17,8 +18,12 @@ export const watch = async (req, res) => {
   if (!card) {
     return res.render("404", { pageTitle: "card Not Found" });
   }
+
+  const imagePath = `/assets/${card.img}`;
+
   res.render("card", {
-    pageTitle: `watching "${card.title}"`,
+    pageTitle: `watching "${card.cardName}"`,
+    imagePath: imagePath,
     card,
   });
 };
@@ -28,12 +33,30 @@ export const getUpload = (req, res) => {
 };
 
 export const postUpload = async (req, res) => {
-  const { title, description, hashTags } = req.body;
+  const {
+    cardName,
+    cost,
+    attribute,
+    power,
+    counter,
+    color,
+    feature,
+    text,
+    getInfo,
+    img,
+  } = req.body;
   try {
-    await Card.create({
-      title,
-      description,
-      hashTags: Card.formatHashTags(hashTags),
+    await UserCard.create({
+      cardName,
+      cost,
+      attribute,
+      power,
+      counter,
+      color,
+      feature,
+      text,
+      getInfo,
+      img,
     });
     return res.redirect("/cards");
   } catch (error) {
@@ -46,7 +69,7 @@ export const postUpload = async (req, res) => {
 
 export const getEdit = async (req, res) => {
   const { id } = req.params;
-  const card = await Card.findById(id);
+  const card = await UserCard.findById(id);
   if (!card) {
     return res.render("404", { pageTitle: "Card Not Found" });
   }
@@ -58,15 +81,33 @@ export const getEdit = async (req, res) => {
 
 export const postEdit = async (req, res) => {
   const { id } = req.params;
-  const { title, description, hashTags } = req.body;
-  const card = await Card.exists({ _id: id });
+  const {
+    cardName,
+    cost,
+    attribute,
+    power,
+    counter,
+    color,
+    feature,
+    text,
+    getInfo,
+    img,
+  } = req.body;
+  const card = await UserCard.exists({ _id: id });
   if (!card) {
     return res.render("404", { pageTitle: "Card Not Found" });
   }
-  await Card.findByIdAndUpdate(id, {
-    title,
-    description,
-    hashTags: Card.formatHashTags2(hashTags),
+  await UserCard.findByIdAndUpdate(id, {
+    cardName,
+    cost,
+    attribute,
+    power,
+    counter,
+    color,
+    feature,
+    text,
+    getInfo,
+    img,
   });
 
   return res.redirect(`/cards/${id}`);
@@ -92,13 +133,40 @@ export const getSearch = async (req, res) => {
 export const card_home = (req, res) => {
   Card.find({})
     .then((cards) => {
-      console.log("cards", cards);
+      const imagePath = `/assets/${cards.img}`;
       return res.render("card_home", {
         pageTitle: `Card Homepage`,
         cards: cards,
+        imagePath: imagePath,
       });
     })
     .catch((error) => {
       console.log("errors", error);
     });
+};
+
+export const user_card_home = (req, res) => {
+  UserCard.find({})
+    .then((userCards) => {
+      console.log("cards", userCards);
+      return res.render("user_card_home", {
+        pageTitle: `User Card Homepage`,
+        userCards: userCards,
+      });
+    })
+    .catch((error) => {
+      console.log("errors", error);
+    });
+};
+
+export const userCardWatch = async (req, res) => {
+  const { id } = req.params;
+  const userCard = await UserCard.findById(id);
+  if (!userCard) {
+    return res.render("404", { pageTitle: "card Not Found" });
+  }
+  res.render("user_card", {
+    pageTitle: `watching "${userCard.cardName}"`,
+    userCard,
+  });
 };

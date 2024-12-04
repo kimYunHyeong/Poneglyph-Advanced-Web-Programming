@@ -24,4 +24,20 @@ module.exports = {
       },
     ],
   },
+
+  module: {
+    rules: [
+      {
+        test: /\.(jpg|jpeg|png|gif|svg)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "assets/img/[name].[hash].[ext]", // 해시 이름 설정
+            },
+          },
+        ],
+      },
+    ],
+  },
 };

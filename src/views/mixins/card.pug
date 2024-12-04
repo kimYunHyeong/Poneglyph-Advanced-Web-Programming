@@ -1,10 +1,7 @@
 mixin card(cardInfo)
-    div 
+    div
+      img(src=`/assets/${cardInfo.img}`)
       h4
-        a(href=`/cards/${cardInfo.id}`)=cardInfo.title
-      p=cardInfo.descripton
-      ul
-        each hashTags in cardInfo.hashTags
-          li=hashTags
+        a(href=`/cards/${cardInfo.id}`)=cardInfo.cardName
       small=cardInfo.createdAt
       hr 

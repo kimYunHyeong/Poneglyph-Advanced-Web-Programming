@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const cardSchema = new mongoose.Schema({
+const userCardSchema = new mongoose.Schema({
   cardName: { type: String },
   cost: { type: String },
   attribute: { type: String },
@@ -13,5 +13,5 @@ const cardSchema = new mongoose.Schema({
   img: { type: String },
 });
 
-const Card = mongoose.model("Card", cardSchema);
-export default Card;
+const UserCard = mongoose.model("UserCard", userCardSchema);
+export default UserCard;
