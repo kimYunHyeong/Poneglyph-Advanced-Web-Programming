@@ -11,20 +11,17 @@ html(lang="en")
         header 
             nav.login-bar
                 ul
-                    li
-                        a(href="/") go to home
                     if loggedIn
                         li
                             a(href="/user/logout") Log Out
-                        li
-                            a(href="/my-profile") #{loggedInUser.name}의 profile 
                     else 
                         li
                             a(href="/join") Join
                         li
                             a(href="/login") Login
-            h1.title=pageTitle
+            a.logo(href="/") PONEGLYPH        
         main
+            h1.title=pageTitle
             block content
     include partials/footer
     script(src="/assets/js/main.js")

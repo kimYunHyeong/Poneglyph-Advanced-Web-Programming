@@ -1,19 +1,16 @@
 extends base
 block content
-    img(src=imagePath)
-    p=card.cardName
-    p=card.cost
-    p=card.attribute
-    p=card.power
-    p=card.counter
-    p=card.color
-    p=card.feature
-    p=card.text
-    p=card.getInfo
-    small=card.createdAt
-    br
-    a(href=`${card.id}/edit`) Edit Card &rarr;
-    br
-    a(href=`${card.id}/delete`) Delete Card &rarr;
+    div.card
+        img(src=imagePath)
+        p=card.cardName
+        p=card.cost
+        p=card.attribute
+        p=card.power
+        p=card.counter
+        p=card.color
+        p=card.feature
+        p=card.text
+        p=card.getInfo
+        br
 
 

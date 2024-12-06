@@ -11,6 +11,7 @@ const userCardSchema = new mongoose.Schema({
   text: { type: String },
   getInfo: { type: String },
   img: { type: String },
+  createdAt: { type: Date, required: true, default: Date.now() },
 });
 
 const UserCard = mongoose.model("UserCard", userCardSchema);

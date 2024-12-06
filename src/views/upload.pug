@@ -4,7 +4,7 @@ block content
     h4 Upload Card
     if errorMessage
         span= errorMessage
-    form(method="POST")
+    form(method="POST" enctype='multipart/form-data')
         input(placeholder="cardName",required, type="text" name="cardName")
         input(placeholder="cost",required, type="text" name="cost")
         input(placeholder="power",required, type="text" name="power")
@@ -13,5 +13,5 @@ block content
         input(placeholder="feature",required, type="text" name="feature")
         input(placeholder="text",required, type="text" name="text")
         input(placeholder="getInfo",required, type="text" name="getInfo")
-        input(placeholder="img",required, type="text" name="img")
+        input(type="file" name="img" id="img" accept="image/*" required)
         input(type="submit" value="Upload Cards")

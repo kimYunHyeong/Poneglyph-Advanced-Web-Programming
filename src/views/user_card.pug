@@ -1,6 +1,6 @@
 extends base
 block content
-    div.usercard-img
+    img(src=`/assets/images/user_card_img/${userCard.img}`)
     p=userCard.cardName
     p=userCard.cost
     p=userCard.attribute

@@ -107,8 +107,9 @@ for item in data:
 
 
 for item in data:
-    if "img" in item and item["img"].startswith("./"):
-        item["img"] = item["img"][2:]  # 맨 앞의 두 문자(./) 제거
+    if "img" in item and "/img/" in item["img"]:
+        item["img"] = item["img"].replace("./img/", "/images/card_img/")  # '/img/'를 '/images/card_img/'로 교체
+
 ###################################################################
 
 

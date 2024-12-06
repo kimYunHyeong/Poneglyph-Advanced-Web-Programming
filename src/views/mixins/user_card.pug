@@ -1,7 +1,7 @@
 mixin card(cardInfo)
-    div 
+    div
+      img(src=`/assets/images/user_card_img/${cardInfo.img}`)
       h4
         a(href=`/cards/usercards/${cardInfo.id}`)=cardInfo.cardName
-      p=cardInfo.power
       small=cardInfo.createdAt
       hr 

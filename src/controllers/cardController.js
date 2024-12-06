@@ -19,7 +19,8 @@ export const watch = async (req, res) => {
     return res.render("404", { pageTitle: "card Not Found" });
   }
 
-  const imagePath = `/assets/${card.img}`;
+  const imagePath = `/assets${card.img}`;
+  console.log(imagePath);
 
   res.render("card", {
     pageTitle: `watching "${card.cardName}"`,
@@ -33,6 +34,9 @@ export const getUpload = (req, res) => {
 };
 
 export const postUpload = async (req, res) => {
+  console.log(req.file);
+  console.log(req.body);
+
   const {
     cardName,
     cost,
@@ -43,10 +47,16 @@ export const postUpload = async (req, res) => {
     feature,
     text,
     getInfo,
-    img,
   } = req.body;
+
+  const imgFile = req.file;
+
   try {
-    await UserCard.create({
+    if (!imgFile) {
+      throw new Error("Image upload failed");
+    }
+
+    const newCard = await UserCard.create({
       cardName,
       cost,
       attribute,
@@ -56,18 +66,21 @@ export const postUpload = async (req, res) => {
       feature,
       text,
       getInfo,
-      img,
+      img: imgFile.filename,
     });
-    return res.redirect("/cards");
+    await setTimeout(() => {}, 200);
+    return res.redirect("/cards/usercards");
   } catch (error) {
+    console.error(error);
     return res.render("upload", {
       pageTitle: "Upload Card",
-      errorMessage: error._message,
+      errorMessage: error.message || error._message,
     });
   }
 };
 
 export const getEdit = async (req, res) => {
+  console.log(req.params);
   const { id } = req.params;
   const card = await UserCard.findById(id);
   if (!card) {
@@ -110,7 +123,7 @@ export const postEdit = async (req, res) => {
     img,
   });
 
-  return res.redirect(`/cards/${id}`);
+  return res.redirect(`/cards/usercards/${id}`);
 };
 
 export const delteCard = async (req, res) => {
@@ -148,10 +161,11 @@ export const card_home = (req, res) => {
 export const user_card_home = (req, res) => {
   UserCard.find({})
     .then((userCards) => {
-      console.log("cards", userCards);
+      const imagePath = UserCard.img;
       return res.render("user_card_home", {
         pageTitle: `User Card Homepage`,
         userCards: userCards,
+        imagePath: imagePath,
       });
     })
     .catch((error) => {
@@ -170,4 +184,10 @@ export const userCardWatch = async (req, res) => {
     pageTitle: `watching "${userCard.cardName}"`,
     userCard,
   });
+};
+
+export const delteUserCard = async (req, res) => {
+  const { id } = req.params;
+  await UserCard.findByIdAndDelete(id);
+  return res.redirect("/cards/usercards");
 };
