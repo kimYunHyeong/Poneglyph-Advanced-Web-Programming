@@ -2,14 +2,14 @@ extends base
 include mixins/card
 
 block content
-    div(class=goToButtonDiv)
-        a(href=`/stories`)
-            button(class="goToButton", type="button") Story
-        a(href=`/cards`)
-            button(class="goToButton", type="button") Card
-        a(href=`/characters`)
-            button(class="goToButton", type="button") Character
-        a(href=`/fruits`)
-            button(class="goToButton", type="button") Fruit
-        a(href=`/cards/usercards`)
-            button(class="goToButton", type="button") user own card
+    div.go-to-btn-div
+        a(href="/stories")
+            button.go-to-btn(type="button") Story
+        a(href="/cards")
+            button.go-to-btn(type="button") Card
+        a(href="/characters")
+            button.go-to-btn(type="button") Character
+        a(href="/fruits")
+            button.go-to-btn(type="button") Fruit
+        a(href="/cards/usercards")
+            button.go-to-btn(type="button") user own card

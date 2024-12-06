@@ -2,13 +2,13 @@ extends base
 include mixins/card
 
 block content
-    h1 Card Home
-    ul
-        li
+    ul.small-nav-div
+        li.small-nav
             a(href="/cards/upload") upload Cards
-        li
+        li.small-nav
             a(href="/search") Search
-    each card in cards
-        +card(card) 
-    else
-        li sorry nothing found
+    div.card-container
+        each card in cards
+            +card(card)
+        else
+            li sorry nothing found

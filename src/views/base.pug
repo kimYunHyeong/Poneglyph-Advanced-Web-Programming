@@ -4,22 +4,10 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title #{pageTitle} | #{siteName}
-        link(rel="stylesheet" href="https://unpkg.com/mvp.css")
         link(rel="stylesheet" href="../assets/css/styles.css")
 
     body
-        header 
-            nav.login-bar
-                ul
-                    if loggedIn
-                        li
-                            a(href="/user/logout") Log Out
-                    else 
-                        li
-                            a(href="/join") Join
-                        li
-                            a(href="/login") Login
-            a.logo(href="/") PONEGLYPH        
+        include partials/header
         main
             h1.title=pageTitle
             block content

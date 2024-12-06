@@ -1,0 +1,15 @@
+.go-to-btn-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 10px;
+}
+
+.go-to-btn {
+  margin: 10px 10px;
+  text-align: center;
+  padding: 20px;
+  background-color: red;
+  border: solid 3px;
+  border-radius: 15px;
+}
