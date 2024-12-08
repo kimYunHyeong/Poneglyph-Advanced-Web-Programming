@@ -1,7 +1,7 @@
 {
   "name": "poneglyph",
   "version": "1.0.0",
-  "description": "introduce about one peice animation",
+  "description": "introduce about one peice card game",
   "main": "src/sever.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

@@ -5,7 +5,7 @@ export const showHomepage = (req, res) => {
   const cards = Card.find({})
     .sort({ createdAt: "descending" })
     .then((cards) => {
-      return res.render("home", { pageTitle: "Home", cards: cards });
+      return res.render("card_home", { pageTitle: "Home", cards: cards });
     })
     .catch((error) => {
       console.log("errors", error);
@@ -23,7 +23,7 @@ export const watch = async (req, res) => {
   console.log(imagePath);
 
   res.render("card", {
-    pageTitle: `watching "${card.cardName}"`,
+    pageTitle: card.cardName,
     imagePath: imagePath,
     card,
   });
@@ -87,7 +87,7 @@ export const getEdit = async (req, res) => {
     return res.render("404", { pageTitle: "Card Not Found" });
   }
   return res.render("edit", {
-    pageTitle: `Editing ${card.title}`,
+    pageTitle: `Editing ${card.cardName}`,
     card,
   });
 };
@@ -134,10 +134,12 @@ export const delteCard = async (req, res) => {
 
 export const getSearch = async (req, res) => {
   const { keyword } = req.query;
+  console.log("Keyword:", keyword); // 디버깅용
+
   let cards = [];
   if (keyword) {
     cards = await Card.find({
-      title: { $regex: new RegExp(keyword, "i") },
+      cardName: { $regex: keyword, $options: "i" },
     });
   }
   return res.render("search", { pageTitle: "Search", cards });
@@ -181,7 +183,7 @@ export const userCardWatch = async (req, res) => {
     return res.render("404", { pageTitle: "card Not Found" });
   }
   res.render("user_card", {
-    pageTitle: `watching "${userCard.cardName}"`,
+    pageTitle: userCard.cardName,
     userCard,
   });
 };

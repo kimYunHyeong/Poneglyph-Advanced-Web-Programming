@@ -1,9 +1,0 @@
-extends base
-include mixins/card
-
-block content
-    h1 Fruit Home
-    each card in cards
-        +card(card) 
-    else
-        li sorry nothing found

@@ -1,19 +1,44 @@
 extends base
+
 block content
-    img(src=`/assets/images/user_card_img/${userCard.img}`)
-    p=userCard.cardName
-    p=userCard.cost
-    p=userCard.attribute
-    p=userCard.power
-    p=userCard.counter
-    p=userCard.color
-    p=userCard.feature
-    p=userCard.text
-    p=userCard.getInfo
+    div.card-info
+        div.card-info-img-container
+            div.card-info-img-overlay
+            img.card-info-img-real(src=`/assets/images/user_card_img/${userCard.img}`)
 
-    br
-    a(href=`${userCard.id}/edit`) Edit Card &rarr;
-    br
-    a(href=`${userCard.id}/delete`) Delete Card &rarr;
+        table.card-info-table
+            tbody
+                tr
+                    td.card-attribute 코스트
+                    td.card-value=userCard.cost
+                tr
+                    td.card-attribute 속성
+                    td.card-value=userCard.attribute
+                tr
+                    td.card-attribute 전투력
+                    td.card-value=userCard.power
+                tr
+                    td.card-attribute 카운터
+                    td.card-value=userCard.counter
+                tr
+                    td.card-attribute 색
+                    td.card-value=userCard.color
+                tr
+                    td.card-attribute 소속
+                    td.card-value=userCard.feature
+                tr
+                    td.card-attribute 입수정보
+                    td.card-value=userCard.getInfo
+                tr
+                    td.card-attribute 효과
+                    td.card-value=userCard.text
 
 
+
+
+
+    div.container.go-edit-delete-button-container
+        a.submit-button.go-edit-delete-button(href=`${userCard.id}/edit`) Edit Card &rarr;
+        a.submit-button.go-edit-delete-button(href=`${userCard.id}/delete`) Delete Card &rarr;
+
+    script(src="/assets/js/main.js")

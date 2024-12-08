@@ -5,11 +5,18 @@
 @import "./components/header.scss";
 @import "./components/footer.scss";
 @import "./components/card.scss";
+@import "./components/form.scss";
+@import "./components/card_info.scss";
 
 //screens
 @import "./screen/home.scss";
 @import "./screen/base.scss";
-@import "./screen/card.scss";
+@import "./screen/card_home.scss";
+@import "./screen/join.scss";
+@import "./screen/login.scss";
+@import "./screen/user_card.scss";
+@import "./screen/search.scss";
+
 //defaults
 a {
   color: inherit;

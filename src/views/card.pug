@@ -1,16 +1,38 @@
 extends base
 block content
-    div.card
-        img(src=imagePath)
-        p=card.cardName
-        p=card.cost
-        p=card.attribute
-        p=card.power
-        p=card.counter
-        p=card.color
-        p=card.feature
-        p=card.text
-        p=card.getInfo
-        br
+    div.card-info
+        div.card-info-img-container
+            div.card-info-img-overlay
+            img.card-info-img-real(src=imagePath)
+
+        table.card-info-table
+            tbody
+                tr
+                    td.card-attribute 코스트
+                    td.card-value=card.cost
+                tr
+                    td.card-attribute 속성
+                    td.card-value=card.attribute
+                tr
+                    td.card-attribute 전투력
+                    td.card-value=card.power
+                tr
+                    td.card-attribute 카운터
+                    td.card-value=card.counter
+                tr
+                    td.card-attribute 색
+                    td.card-value=card.color
+                tr
+                    td.card-attribute 소속
+                    td.card-value=card.feature
+                tr
+                    td.card-attribute 입수정보
+                    td.card-value=card.getInfo
+                tr
+                    td.card-attribute 효과
+                    td.card-value=card.text
+
+    script(src="/assets/js/main.js")
+
 
 

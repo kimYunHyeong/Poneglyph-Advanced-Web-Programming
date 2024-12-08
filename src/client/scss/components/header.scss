@@ -8,8 +8,9 @@
   display: flex;
   justify-content: center;
   font-size: 45px;
-  font-weight: 700;
-  margin: 70px 0px;
+  font-weight: 800;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .login-bar-box {
@@ -17,7 +18,15 @@
   margin: 10px 10px;
   border: black;
   border-radius: 15px;
-  background-color: blue;
-  color: white;
+  background-color: #89a8b2;
+  color: #e5e1da;
   text-align: center;
+  font-weight: 600;
+}
+
+.header {
+  background-image: url("/src/client/img/Logo_img/logo.jpg");
+  height: 250px;
+  border-bottom: #b3c8cf 4px solid;
+  color: #89a8b2;
 }

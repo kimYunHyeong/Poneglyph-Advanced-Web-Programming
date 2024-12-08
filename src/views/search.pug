@@ -2,9 +2,13 @@ extends base
 include mixins/card
 
 block content
-    form(method="GET")
-        input(placeholder="Search By Title", name="keyword", type="text")
-        input(type="submit",value="Search Now")
+    form.search-form(method="GET")
+        input.search-bar(placeholder="Search By Card Name", name="keyword", type="text")
+        input.submit-button(type="submit",value="Search Now")
 
-    each card in cards
-        +card(card) 
+    if cards.length>0
+    div.card-container
+        each card in cards
+            +card(card)
+        else
+            p.alert-error No Cards Found

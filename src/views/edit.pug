@@ -1,14 +1,15 @@
 extends base.pug
 
 block content
-    h4 Change Title of card
-    form(method="POST")
-        input(placeholder="cardName",required, type="text" name="cardName")
-        input(placeholder="cost",required, type="text" name="cost")
-        input(placeholder="power",required, type="text" name="power")
-        input(placeholder="counter",required, type="text" name="counter")
-        input(placeholder="color",required, type="text" name="color")
-        input(placeholder="feature",required, type="text" name="feature")
-        input(placeholder="text",required, type="text" name="text")
-        input(placeholder="getInfo",required, type="text" name="getInfo")
-        input(value="Save",type="submit")
+    div.container
+        form.form(method="POST")
+            input.input-bar(placeholder="cardName",required, type="text" name="cardName", value=card.cardName)
+            input.input-bar(placeholder="cost",required, type="text" name="cost", value=card.cost)
+            input.input-bar(placeholder="attribute",required, type="text" name="attribute", value=card.attribute)
+            input.input-bar(placeholder="power",required, type="text" name="power", value=card.power)
+            input.input-bar(placeholder="counter",required, type="text" name="counter", value=card.counter)
+            input.input-bar(placeholder="color",required, type="text" name="color", value=card.color)
+            input.input-bar(placeholder="feature",required, type="text" name="feature", value=card.feature)
+            input.input-bar(placeholder="text",required, type="text" name="text", value=card.text)
+            input.input-bar(placeholder="getInfo",required, type="text" name="getInfo", value=card.getInfo)
+            input.submit-button(value="Save",type="submit")

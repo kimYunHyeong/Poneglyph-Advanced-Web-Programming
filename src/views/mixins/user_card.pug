@@ -1,7 +1,5 @@
 mixin card(cardInfo)
-    div
-      img(src=`/assets/images/user_card_img/${cardInfo.img}`)
-      h4
-        a(href=`/cards/usercards/${cardInfo.id}`)=cardInfo.cardName
-      small=cardInfo.createdAt
-      hr 
+    a.card-div(href=`/cards/usercards/${cardInfo.id}`)
+        img.card-img(src=`/assets/images/user_card_img/${cardInfo.img}`)
+        h4.card-name=cardInfo.cardName
+        small.created-date=cardInfo.createdAt

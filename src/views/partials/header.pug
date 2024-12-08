@@ -1,13 +1,13 @@
 header
-    nav
-        ul.login-bar
-            if loggedIn
-                li.login-bar-box
-                    a(href="/user/logout") Log Out
-            else 
-                li.login-bar-box
-                    a(href="/join") Join
-                li.login-bar-box
-                    a(href="/login") Login
-    h1.logo
-        a(href="/") PONEGLYPH
+    div.header
+        nav
+            ul.login-bar
+                if loggedIn
+                    li.login-bar-box
+                        a(href="/user/logout") Log Out
+                else 
+                    li.login-bar-box
+                        a(href="/join") Join
+                    li.login-bar-box
+                        a(href="/login") Login
+        a.logo(href="/") PONEGLYPH

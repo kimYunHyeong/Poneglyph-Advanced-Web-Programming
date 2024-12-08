@@ -1,17 +1,19 @@
 extends base.pug
 
 block content
-    h4 Upload Card
-    if errorMessage
-        span= errorMessage
-    form(method="POST" enctype='multipart/form-data')
-        input(placeholder="cardName",required, type="text" name="cardName")
-        input(placeholder="cost",required, type="text" name="cost")
-        input(placeholder="power",required, type="text" name="power")
-        input(placeholder="counter",required, type="text" name="counter")
-        input(placeholder="color",required, type="text" name="color")
-        input(placeholder="feature",required, type="text" name="feature")
-        input(placeholder="text",required, type="text" name="text")
-        input(placeholder="getInfo",required, type="text" name="getInfo")
-        input(type="file" name="img" id="img" accept="image/*" required)
-        input(type="submit" value="Upload Cards")
+    div.container
+        form.form(method="POST" enctype='multipart/form-data')
+            input.input-bar(placeholder="cardName",required, type="text" name="cardName")
+            input.input-bar(placeholder="cost",required, type="text" name="cost")
+            input.input-bar(placeholder="attribute",required, type="text" name="attribute")
+            input.input-bar(placeholder="power",required, type="text" name="power")
+            input.input-bar(placeholder="counter",required, type="text" name="counter")
+            input.input-bar(placeholder="color",required, type="text" name="color")
+            input.input-bar(placeholder="feature",required, type="text" name="feature")
+            input.input-bar(placeholder="text",required, type="text" name="text")
+            input.input-bar(placeholder="getInfo",required, type="text" name="getInfo")
+            input.input-bar(type="file" name="img" id="img" accept="image/*" required)
+            if errorMessage
+                span= errorMessage
+            
+            input.submit-button(type="submit" value="Upload Cards")

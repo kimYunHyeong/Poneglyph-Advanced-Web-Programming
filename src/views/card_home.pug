@@ -2,13 +2,12 @@ extends base
 include mixins/card
 
 block content
-    ul.small-nav-div
-        li.small-nav
-            a(href="/cards/upload") upload Cards
-        li.small-nav
-            a(href="/search") Search
+    div.small-nav-div
+        a.small-nav(href="/cards/upload") Upload Your Own Cards
+        a.small-nav(href="/search") Search Cards
+        a.small-nav(href="/cards/usercards") Watch User Own card
     div.card-container
         each card in cards
             +card(card)
         else
-            li sorry nothing found
+            p.alert-error sorry nothing found

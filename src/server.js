@@ -8,9 +8,6 @@ import { localMiddleware } from "./middlewares";
 import rootRouter from "./routers/rootRouter";
 import userRouter from "./routers/userRouter";
 import cardRouter from "./routers/cardRouter";
-import storyRouter from "./routers/storyRouter";
-import characterRouter from "./routers/characterRouter";
-import fruitRouter from "./routers/fruitRouter";
 
 const app = express();
 const logger = morgan("dev");
@@ -43,8 +40,5 @@ app.use("/user", userRouter);
 
 //informartion router
 app.use("/cards", cardRouter);
-app.use("/stories", storyRouter);
-app.use("/characters", characterRouter);
-app.use("/fruits", fruitRouter);
 
 export default app;

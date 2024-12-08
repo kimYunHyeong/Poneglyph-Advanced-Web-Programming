@@ -1,15 +1,15 @@
 extends base
 
 block content
-    if errorMessage
-        span=errorMessage
-    form(method="POST")
-        input(placeholder="user ID",name="userID",type="text",required)
-        input(placeholder="password",name="password",type="password",required)
-        input(type="submit", value="Join")
-        br
-        a(href="/user/github/start") Continue with Github &rarr;
-    hr
-    div
-        span Don't have an account? 
-        a(href="/join") Create now &rarr;
+    div.container
+        form.form(method="POST")
+            input.input-bar(placeholder="user ID",name="userID",type="text",required)
+            input.input-bar(placeholder="password",name="password",type="password",required)
+            if errorMessage
+                div.alert-error
+                    span=errorMessage
+            input.submit-button(type="submit", value="Log In")
+            a.submit-button.github-button(href="/user/github/start") Continue with Github
+            span.question Don't have an account?
+            div.submit-button.go-to-button
+                a(href="/join") Create Now
