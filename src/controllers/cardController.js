@@ -1,5 +1,6 @@
 import Card from "../models/Card";
 import UserCard from "../models/UserCard";
+import User from "../models/User";
 
 export const showHomepage = (req, res) => {
   const cards = Card.find({})
@@ -34,8 +35,9 @@ export const getUpload = (req, res) => {
 };
 
 export const postUpload = async (req, res) => {
-  console.log(req.file);
-  console.log(req.body);
+  const {
+    user: { _id },
+  } = req.session;
 
   const {
     cardName,
@@ -66,6 +68,7 @@ export const postUpload = async (req, res) => {
       feature,
       text,
       getInfo,
+      owner: _id,
       img: imgFile.location,
     });
     return res.redirect("/cards/usercards");
@@ -177,6 +180,8 @@ export const user_card_home = (req, res) => {
 export const userCardWatch = async (req, res) => {
   const { id } = req.params;
   const userCard = await UserCard.findById(id);
+  const owner = await User.findById(userCard.owner);
+  console.log(owner);
   console.log("cards", userCard);
   if (!userCard) {
     return res.render("404", { pageTitle: "card Not Found" });
@@ -184,6 +189,7 @@ export const userCardWatch = async (req, res) => {
   res.render("user_card", {
     pageTitle: userCard.cardName,
     userCard,
+    owner,
   });
 };
 

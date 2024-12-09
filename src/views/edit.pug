@@ -3,13 +3,42 @@ extends base.pug
 block content
     div.container
         form.form(method="POST")
-            input.input-bar(placeholder="cardName",required, type="text" name="cardName", value=card.cardName)
-            input.input-bar(placeholder="cost",required, type="text" name="cost", value=card.cost)
-            input.input-bar(placeholder="attribute",required, type="text" name="attribute", value=card.attribute)
-            input.input-bar(placeholder="power",required, type="text" name="power", value=card.power)
+            input.input-bar(placeholder="card Name",required, type="text" name="cardName", value=card.cardName)
+            select.input-bar(placeholder="attribute", required,  type="text", name="attribute", value=card.attribute)
+                option(value="타격") 타격
+                option(value="참격") 참격
+                option(value="특수") 특수
+                option(value="지능") 지능
+                option(value="사격") 사격
+            select.input-bar(placeholder="color", required,  type="text", name="color", value=card.color)
+                option(value="빨강") 빨강
+                option(value="초록") 초록
+                option(value="파랑") 파랑
+                option(value="보라") 보라
+                option(value="검정") 검정
+                option(value="노랑") 노랑
+            input.input-bar(placeholder="cost", required, type="number", name="cost", min="0", value=card.cost)
+            input.input-bar(placeholder="power",required, type="number" name="power",min="0", value=card.power)
             input.input-bar(placeholder="counter",required, type="text" name="counter", value=card.counter)
-            input.input-bar(placeholder="color",required, type="text" name="color", value=card.color)
             input.input-bar(placeholder="feature",required, type="text" name="feature", value=card.feature)
             input.input-bar(placeholder="text",required, type="text" name="text", value=card.text)
-            input.input-bar(placeholder="getInfo",required, type="text" name="getInfo", value=card.getInfo)
+            input.input-bar(placeholder="get Info",required, type="text" name="getInfo", value=card.getInfo)
+            input.input-bar(type="file" name="img" id="img" accept="image/*" required)
+
             input.submit-button(value="Save",type="submit")
+
+
+
+
+
+
+           
+
+
+
+
+
+
+
+
+

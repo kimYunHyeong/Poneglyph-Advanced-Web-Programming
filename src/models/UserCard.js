@@ -12,6 +12,7 @@ const userCardSchema = new mongoose.Schema({
   getInfo: { type: String },
   img: { type: String },
   createdAt: { type: Date, required: true, default: Date.now() },
+  owner: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "User" },
 });
 
 const UserCard = mongoose.model("UserCard", userCardSchema);

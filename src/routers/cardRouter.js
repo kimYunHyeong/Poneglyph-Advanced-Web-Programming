@@ -1,5 +1,5 @@
 import express from "express";
-import { imgUpload } from "../middlewares.js";
+import { imgUpload, protectorMiddleware } from "../middlewares.js";
 
 import {
   watch,
@@ -8,7 +8,6 @@ import {
   card_home,
   getUpload,
   postUpload,
-  delteCard,
   user_card_home,
   userCardWatch,
   delteUserCard,
@@ -16,18 +15,27 @@ import {
 
 const cardRouter = express.Router();
 
+//official card route
 cardRouter.get("/", card_home);
 cardRouter.get("/:id([0-9a-f]{24})", watch);
-cardRouter
-  .route("/upload")
-  .get(getUpload)
-  .post(imgUpload.single("img"), postUpload);
-cardRouter.route("/:id([0-9a-f]{24})/delete").get(delteCard);
+
+//user card route
 cardRouter.route("/usercards").get(user_card_home);
 cardRouter.get("/usercards/:id([0-9a-f]{24})", userCardWatch);
+
+//card crud
+cardRouter
+  .route("/upload")
+  .all(protectorMiddleware)
+  .get(getUpload)
+  .post(imgUpload.single("img"), postUpload);
 cardRouter
   .route("/usercards/:id([0-9a-f]{24})/edit")
+  .all(protectorMiddleware)
   .get(getEdit)
   .post(postEdit);
-cardRouter.route("/usercards/:id([0-9a-f]{24})/delete").get(delteUserCard);
+cardRouter
+  .route("/usercards/:id([0-9a-f]{24})/delete")
+  .all(protectorMiddleware)
+  .get(delteUserCard);
 export default cardRouter;

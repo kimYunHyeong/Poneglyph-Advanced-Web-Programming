@@ -2,6 +2,10 @@ extends base
 
 block content
     div.card-info
+        div.uploder-info
+            span=`Uploaded by ${owner.userID}`
+            span=userCard.createdAt
+
         div.card-info-img-container
             div.card-info-img-overlay
             img.card-info-img-real(src=userCard.img)
@@ -35,10 +39,9 @@ block content
 
 
 
-
-
-    div.container.go-edit-delete-button-container
-        a.submit-button.go-edit-delete-button(href=`${userCard.id}/edit`) Edit Card &rarr;
-        a.submit-button.go-edit-delete-button(href=`${userCard.id}/delete`) Delete Card &rarr;
+    if loggedInUser && (String(loggedInUser._id) === String(userCard.owner))
+        div.container.go-edit-delete-button-container
+            a.submit-button.go-edit-delete-button(href=`${userCard.id}/edit`) Edit Card &rarr;
+            a.submit-button.go-edit-delete-button(href=`${userCard.id}/delete`) Delete Card &rarr;
 
     script(src="/assets/js/main.js")

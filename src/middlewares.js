@@ -26,6 +26,22 @@ export const localMiddleware = (req, res, next) => {
   next();
 };
 
+export const protectorMiddleware = (req, res, next) => {
+  if (req.session.loggedIn) {
+    next();
+  } else {
+    return res.status(401).redirect("/login");
+  }
+};
+
+export const publicOnlyMiddleware = (req, res, next) => {
+  if (!req.session.loggedIn) {
+    next();
+  } else {
+    return res.redirect("/");
+  }
+};
+
 // Multer 저장소 설정
 export const imgUpload = multer({
   limits: {
