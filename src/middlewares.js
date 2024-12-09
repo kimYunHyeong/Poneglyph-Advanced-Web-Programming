@@ -1,6 +1,23 @@
 import multer from "multer";
-import path from "path";
-import fs from "fs";
+import { S3Client } from "@aws-sdk/client-s3";
+import multerS3 from "multer-s3";
+
+const s3Client = new S3Client({
+  region: "ap-northeast-1",
+  credentials: {
+    accessKeyId: process.env.AWS_KEY,
+    secretAccessKey: process.env.AWS_SECRET,
+  },
+});
+
+const s3UserOwnCardStorage = multerS3({
+  s3: s3Client,
+  bucket: "poneglyph-advanced-web-programming",
+  acl: "public-read",
+  key: function (req, file, cb) {
+    cb(null, `usercards/${Date.now().toString()}`);
+  },
+});
 
 export const localMiddleware = (req, res, next) => {
   res.locals.loggedIn = Boolean(req.session.loggedIn);
@@ -9,25 +26,10 @@ export const localMiddleware = (req, res, next) => {
   next();
 };
 
-// 저장 경로 및 파일 이름 설정
-const uploadDir = path.join(process.cwd(), "src/client/img/user_card_img");
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true }); // 디렉토리가 없으면 생성
-}
-
 // Multer 저장소 설정
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, uploadDir); // 업로드할 디렉토리 설정
+export const imgUpload = multer({
+  limits: {
+    fileSize: 3000000,
   },
-  filename: (req, file, cb) => {
-    const uniqueName = `user_image_${Date.now()}${path.extname(
-      file.originalname
-    )}`;
-    cb(null, uniqueName); // 고유 파일 이름 생성
-  },
+  storage: s3UserOwnCardStorage,
 });
-
-const upload = multer({ storage });
-
-export default upload; // upload 미들웨어를 export

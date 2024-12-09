@@ -41,4 +41,8 @@ app.use("/user", userRouter);
 //informartion router
 app.use("/cards", cardRouter);
 
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
 export default app;

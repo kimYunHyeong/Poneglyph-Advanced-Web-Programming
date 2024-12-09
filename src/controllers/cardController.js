@@ -66,9 +66,8 @@ export const postUpload = async (req, res) => {
       feature,
       text,
       getInfo,
-      img: imgFile.filename,
+      img: imgFile.location,
     });
-    await setTimeout(() => {}, 200);
     return res.redirect("/cards/usercards");
   } catch (error) {
     console.error(error);

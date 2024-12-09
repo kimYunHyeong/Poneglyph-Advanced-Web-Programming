@@ -17,8 +17,7 @@ module.exports = {
       ],
     }),
   ],
-  mode: "development",
-  watch: true,
+
   output: {
     filename: "js/main.js",
     path: path.resolve(__dirname, "assets"), // 모든 빌드 파일을 "assets" 디렉토리에 생성

@@ -1,5 +1,5 @@
 import express from "express";
-import upload from "../middlewares.js";
+import { imgUpload } from "../middlewares.js";
 
 import {
   watch,
@@ -21,7 +21,7 @@ cardRouter.get("/:id([0-9a-f]{24})", watch);
 cardRouter
   .route("/upload")
   .get(getUpload)
-  .post(upload.single("img"), postUpload);
+  .post(imgUpload.single("img"), postUpload);
 cardRouter.route("/:id([0-9a-f]{24})/delete").get(delteCard);
 cardRouter.route("/usercards").get(user_card_home);
 cardRouter.get("/usercards/:id([0-9a-f]{24})", userCardWatch);

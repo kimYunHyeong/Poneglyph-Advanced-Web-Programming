@@ -1,6 +1,6 @@
 mixin card(cardInfo)
     a.card-div(href=`/cards/${cardInfo.id}`)
-        img.card-img(src=`/assets/${cardInfo.img}`)
+        img.card-img(src=`https://poneglyph-advanced-web-programming.s3.ap-northeast-1.amazonaws.com/cards/img/${cardInfo.img}`)
         h4.card-name=cardInfo.cardName
         small=cardInfo.createdAt
 

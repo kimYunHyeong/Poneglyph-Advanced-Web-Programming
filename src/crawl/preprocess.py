@@ -84,6 +84,16 @@ for item in data:
     if "power" in item:
         item["power"] = clean_power(item["power"])
 
+
+#입수방법 수정하기
+def clean_power(s):
+    if isinstance(s, str):
+        s = s.lstrip("코스트")
+    return s
+for item in data:
+    if "cost" in item:
+        item["cost"] = clean_power(item["cost"])
+
 #입수방법 수정하기
 def clean_counter(s):
     if isinstance(s, str):

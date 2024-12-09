@@ -3,7 +3,7 @@ import "./db";
 import "./models/Card";
 import app from "./server";
 
-const PORT = 4000;
+const PORT = 3000;
 
 app.listen(
   PORT,
