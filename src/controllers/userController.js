@@ -131,6 +131,7 @@ export const finishGithubLogin = async (req, res) => {
         location: userData.location,
       });
     }
+
     req.session.loggedIn = true;
     req.session.user = user;
     return res.redirect("/");
