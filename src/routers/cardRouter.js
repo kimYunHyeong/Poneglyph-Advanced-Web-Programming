@@ -1,5 +1,5 @@
 import express from "express";
-import { imgUpload, protectorMiddleware, removeFile } from "../middlewares.js";
+import { imgUpload, protectorMiddleware } from "../middlewares.js";
 
 import {
   watch,
@@ -37,5 +37,5 @@ cardRouter
 cardRouter
   .route("/usercards/:id([0-9a-f]{24})/delete")
   .all(protectorMiddleware)
-  .get(removeFile, delteUserCard);
+  .get(delteUserCard);
 export default cardRouter;
