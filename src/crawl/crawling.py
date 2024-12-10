@@ -12,7 +12,7 @@ data = []
 IMG_DIR = "./img"
 os.makedirs(IMG_DIR, exist_ok=True)  # 폴더가 없으면 생성
 
-# 1. 웹 드라이버 설정
+
 driver = webdriver.Chrome()
 target_url = "https://onepiece-cardgame.kr/cardlist.do"
 driver.get(target_url)
@@ -28,11 +28,11 @@ while True:
         break  # 스크롤 완료
     last_height = new_height
 
-# 2. 페이지 소스 가져와서 BeautifulSoup으로 파싱
+
 html = driver.page_source
 soup = BeautifulSoup(html, "html.parser")
 
-# 3. 모든 modalCol 요소 찾기
+
 try:
     WebDriverWait(driver, 10).until(
         EC.presence_of_all_elements_located((By.CLASS_NAME, "modalCol"))
