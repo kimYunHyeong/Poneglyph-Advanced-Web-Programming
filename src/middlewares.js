@@ -42,7 +42,6 @@ export const publicOnlyMiddleware = (req, res, next) => {
   }
 };
 
-// Multer 저장소 설정
 export const imgUpload = multer({
   limits: {
     fileSize: 3000000,
