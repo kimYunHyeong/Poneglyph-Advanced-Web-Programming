@@ -3,11 +3,14 @@ header
         nav
             ul.login-bar
                 if loggedIn
-                    li.login-bar-box
-                        a(href="/user/logout") Log Out
+                   a.login-bar-box(href="/user/logout")
+                        i.fa-solid.fa-right-from-bracket
+                        small Log Out
                 else 
-                    li.login-bar-box
-                        a(href="/join") Join
-                    li.login-bar-box
-                        a(href="/login") Login
+                    a.login-bar-box(href="/join")
+                        i.fa.fa-thin.fa-pencil.header-icon
+                        small Join
+                    a.login-bar-box(href="/login")
+                        i.fa-solid.fa-right-to-bracket
+                        small Login
         a.logo(href="/") PONEGLYPH

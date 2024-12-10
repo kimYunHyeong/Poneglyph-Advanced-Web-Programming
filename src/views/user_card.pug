@@ -41,7 +41,11 @@ block content
 
     if loggedInUser && (String(loggedInUser._id) === String(userCard.owner))
         div.container.go-edit-delete-button-container
-            a.submit-button.go-edit-delete-button(href=`${userCard.id}/edit`) Edit Card &rarr;
-            a.submit-button.go-edit-delete-button(href=`${userCard.id}/delete`) Delete Card &rarr;
+            a.submit-button.go-edit-delete-button(href=`${userCard.id}/edit`)
+                i.fa-solid.fa-pen-to-square
+                small Edit Card
+            a.submit-button.go-edit-delete-button(href=`${userCard.id}/delete`)
+                i.fa-solid.fa-trash
+                small Delete Card
 
     script(src="/assets/js/main.js")

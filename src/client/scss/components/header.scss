@@ -14,6 +14,10 @@
 }
 
 .login-bar-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   padding: 5px 15px;
   margin: 10px 10px;
   border: black;
@@ -29,4 +33,20 @@
   height: 250px;
   border-bottom: #b3c8cf 4px solid;
   color: #89a8b2;
+}
+
+i.fa-solid.fa-right-from-bracket,
+.fa-solid.fa-right-to-bracket {
+  margin-right: 5px;
+}
+
+.fa.fa-thin.fa-pencil.header-icon {
+  margin: 0px 0px;
+  margin-right: 5px;
+  color: #e5e1da;
+}
+
+.fa-solid.fa-upload {
+  margin-right: 7px;
+  color: rgba(0, 0, 0, 0.8);
 }

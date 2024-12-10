@@ -8,6 +8,7 @@
   justify-content: center;
   padding: 20px;
   background-color: aliceblue;
+  margin-bottom: 30px;
 }
 
 .input-bar {
@@ -31,15 +32,19 @@
 }
 
 .submit-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
   margin-top: 10px;
   margin-left: 10px;
-  align-items: center;
-  width: 150px;
+  width: 350px;
   height: 40px;
   background-color: #e5e1da;
   font-size: 20px;
   font-weight: 600;
-  border-radius: 15px;
+  border-radius: 18px;
   text-align: center;
 }
 

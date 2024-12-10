@@ -17,8 +17,8 @@ block content
                 option(value="보라") 보라
                 option(value="검정") 검정
                 option(value="노랑") 노랑
-            input.input-bar(placeholder="cost", required, type="number", name="cost", min="0")
-            input.input-bar(placeholder="power",required, type="number" name="power", min="0")
+            input.input-bar(placeholder="cost (number only)", required, type="number", name="cost", min="0")
+            input.input-bar(placeholder="power (number only)",required, type="number" name="power", min="0")
             input.input-bar(placeholder="counter",required, type="text" name="counter")
             input.input-bar(placeholder="feature",required, type="text" name="feature")
             input.input-bar(placeholder="text",required, type="text" name="text")
@@ -28,4 +28,6 @@ block content
             if errorMessage
                 span= errorMessage
             
-            input.submit-button(type="submit" value="Upload Cards")
+            button.submit-button
+                i.fa-solid.fa-upload
+                small Upload Card

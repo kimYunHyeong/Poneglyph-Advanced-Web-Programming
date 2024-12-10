@@ -4,7 +4,8 @@ include mixins/card
 block content
     form.search-form(method="GET")
         input.search-bar(placeholder="Search By Card Name", name="keyword", type="text")
-        input.submit-button(type="submit",value="Search Now")
+        button.submit-button.search-button
+            i.fa-solid.fa-magnifying-glass
 
     if cards.length>0
     div.card-container

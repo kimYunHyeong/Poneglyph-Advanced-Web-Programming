@@ -8,10 +8,13 @@ block content
             input.input-bar(placeholder="check password",name="checkPassword",type="password",required)
             input.input-bar(placeholder="e-mail",name="email",type="text",required)
             input.input-bar(placeholder="nick name",name="nickName",type="text")
-            input.submit-button(type="submit", value="Join")
+            button.submit-button
+                i.fa-solid.fa-pencil
+                small Join
             if errorMessage
                 div.alert-error
                     span=errorMessage
             span.question Already have an account? 
-            div.submit-button.go-to-button
+            div.submit-button.join-page-button-container
+                i.fa-solid.fa-right-to-bracket.join-page-button
                 a(href="/login") Log in now  

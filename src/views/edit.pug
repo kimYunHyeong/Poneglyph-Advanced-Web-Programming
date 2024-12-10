@@ -1,6 +1,8 @@
 extends base.pug
 
 block content
+    div.card-container
+        img.card-img.edit-page(src=card.img)
     div.container
         form.form(method="POST")
             input.input-bar(placeholder="card Name",required, type="text" name="cardName", value=card.cardName)
@@ -17,13 +19,15 @@ block content
                 option(value="보라") 보라
                 option(value="검정") 검정
                 option(value="노랑") 노랑
-            input.input-bar(placeholder="cost", required, type="number", name="cost", min="0", value=card.cost)
-            input.input-bar(placeholder="power",required, type="number" name="power",min="0", value=card.power)
+            input.input-bar(placeholder="cost (number only)", required, type="number", name="cost", min="0", value=card.cost)
+            input.input-bar(placeholder="power (number only)",required, type="number" name="power",min="0", value=card.power)
             input.input-bar(placeholder="counter",required, type="text" name="counter", value=card.counter)
             input.input-bar(placeholder="feature",required, type="text" name="feature", value=card.feature)
             input.input-bar(placeholder="text",required, type="text" name="text", value=card.text)
             input.input-bar(placeholder="get Info",required, type="text" name="getInfo", value=card.getInfo)
-            input.submit-button(value="Save",type="submit")
+            button.submit-button
+                i.fa-solid.fa-check
+                small Save
 
 
 

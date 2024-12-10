@@ -8,8 +8,13 @@ block content
             if errorMessage
                 div.alert-error
                     span=errorMessage
-            input.submit-button(type="submit", value="Log In")
-            a.submit-button.github-button(href="/user/github/start") Continue with Github
+            button.submit-button.login-page-login-button
+                i.fa-solid.fa-lock
+                small.value Log In
+            div.submit-button.github-button
+                i.fab.fa-github
+                a(href="/user/github/start") Continue with Github
             span.question Don't have an account?
-            div.submit-button.go-to-button
+            div.submit-button.login-create-button
+                i.fa.fa-thin.fa-pencil
                 a(href="/join") Create Now
