@@ -49,3 +49,11 @@ export const imgUpload = multer({
   },
   storage: s3UserOwnCardStorage,
 });
+
+export const removeFile = async (url) =>
+  await s3Client.send(
+    new DeleteObjectCommand({
+      Bucket: "poneglyph-advanced-web-programming",
+      Key: decodeURIComponent(url.split(".amazonaws.com/").pop().toString()),
+    })
+  );
