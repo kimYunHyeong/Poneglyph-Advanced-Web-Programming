@@ -83,6 +83,7 @@ export const finishGithubLogin = async (req, res) => {
     client_secret: process.env.GH_SECRET,
     code: req.query.code,
   };
+
   const urlParams = new URLSearchParams(config).toString();
   const finalUrl = `${baseUrl}?${urlParams}`;
   const tokenRequest = await (
