@@ -17,7 +17,6 @@ driver = webdriver.Chrome()
 target_url = "https://onepiece-cardgame.kr/cardlist.do"
 driver.get(target_url)
 
-# 페이지 로드 대기 및 스크롤 끝까지 내리기
 time.sleep(3)
 last_height = driver.execute_script("return document.body.scrollHeight")
 while True:
